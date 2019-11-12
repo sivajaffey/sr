@@ -1,15 +1,15 @@
 <mat-toolbar>
-        <label>{{title}}</label>
+        <label (click)="gotoPage('view-ans')">{{title}}</label>
         <span class="example-spacer"></span>
         <span *ngIf="auth.isLoggedIn() == true">Welcome {{header.displayName}}</span>
         <div class="example-icon" aria-hidden="false" *ngIf="auth.isLoggedIn() == true"><button mat-button [matMenuTriggerFor]="menu" *ngIf="auth.isLoggedIn() == true"><mat-icon>more_vert</mat-icon></button>
             <mat-menu #menu="matMenu">
             <ul>
-                <li><span><img class="user-pic" src="https://lh3.googleusercontent.com/a-/AAuE7mBE1doGkcMqVvxUklhfutgaRDPcQzLTFgLho3s1">{{header.displayName}}</span></li> 
+                <li><span><img (click)="gotoPage('/')" class="user-pic" src="https://lh3.googleusercontent.com/a-/AAuE7mBE1doGkcMqVvxUklhfutgaRDPcQzLTFgLho3s1">{{header.displayName}}</span></li> 
                 <li><span  *ngIf="header.emailVerified"><mat-icon>verified_user</mat-icon>Email Verified</span></li>
             </ul>
-              <button RouterLink="add-question" mat-menu-item>Rise a Question</button>
-              <button RouterLink="view-ques&ans" mat-menu-item>Ques & Ans</button>
+              <button (click)="gotoPage('add-question')" mat-menu-item>Rise a Question</button>
+              <button (click)="gotoPage('view-ans')" mat-menu-item>Ques & Ans</button>
               <button mat-menu-item (click)="logout()" *ngIf="auth.isLoggedIn() == true"> Logout </button>
             </mat-menu>
             </div>

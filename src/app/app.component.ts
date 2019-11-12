@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from './auth.service';
+import { AuthService } from './service/auth.service';
 import { async } from 'q';
 
 @Component({
@@ -27,5 +27,8 @@ export class AppComponent implements OnInit {
   logout() {
     this.auth.logout();
     this.header = {};
+  }
+  gotoPage(page) {
+    this.auth.gotoPage(page);
   }
 }
