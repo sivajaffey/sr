@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './auth.service';
-import { Router, Routes, RouterModule } from '@angular/router';
 import { async } from 'q';
 
 @Component({
@@ -9,10 +8,9 @@ import { async } from 'q';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-project';
+  title = 'SR';
   header = JSON.parse(localStorage.getItem('user'));
-  constructor(private auth: AuthService, private router: Router) { 
-   this.auth.isLoggedIn() == true ? this.router.navigate(['/home']) : this.router.navigate(['/']);
+  constructor(private auth: AuthService) { 
   }
   ngOnInit() {
      this.header = JSON.parse(localStorage.getItem('user'));

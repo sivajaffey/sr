@@ -1,21 +1,20 @@
-<!-- {{header | json}} -->
 <mat-toolbar>
-        <label>SR</label>
+        <label>{{title}}</label>
         <span class="example-spacer"></span>
         <span *ngIf="auth.isLoggedIn() == true">Welcome {{header.displayName}}</span>
         <div class="example-icon" aria-hidden="false" *ngIf="auth.isLoggedIn() == true"><button mat-button [matMenuTriggerFor]="menu" *ngIf="auth.isLoggedIn() == true"><mat-icon>more_vert</mat-icon></button>
             <mat-menu #menu="matMenu">
             <ul>
-                <li><span><mat-icon>person</mat-icon>{{header.displayName}}</span></li> 
+                <li><span><img class="user-pic" src="https://lh3.googleusercontent.com/a-/AAuE7mBE1doGkcMqVvxUklhfutgaRDPcQzLTFgLho3s1">{{header.displayName}}</span></li> 
                 <li><span  *ngIf="header.emailVerified"><mat-icon>verified_user</mat-icon>Email Verified</span></li>
             </ul>
-              <button mat-menu-item>Item 1</button>
-              <button mat-menu-item>Item 2</button>
+              <button RouterLink="add-question" mat-menu-item>Rise a Question</button>
+              <button RouterLink="view-ques&ans" mat-menu-item>Ques & Ans</button>
               <button mat-menu-item (click)="logout()" *ngIf="auth.isLoggedIn() == true"> Logout </button>
             </mat-menu>
             </div>
 </mat-toolbar>
-<div  *ngIf="auth.isLoggedIn() !== true">
-<button (click)="login()"> Login </button>
+<div class="login-div"  *ngIf="auth.isLoggedIn() !== true">
+<button class="login-button" (click)="login()"> Login </button>
 </div>
 <router-outlet></router-outlet>

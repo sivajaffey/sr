@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthComponent } from './auth/auth.component';
-
+import { AddQuesComponent } from './add-ques/add-ques.component';
+import { ViewAnsComponent } from './view-ans/view-ans.component';
 const routes: Routes = [
-  {path:'home', component:AuthComponent}
+  { path:'add-question', component: AddQuesComponent },
+  { path:'view-ques&ans', component: ViewAnsComponent },
 ];
 
 @NgModule({

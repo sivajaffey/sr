@@ -14,3 +14,17 @@ mat-toolbar-row{
     background: #f5f5f5;
     color: rgba(0,0,0,.87);
 }
+.login-div{
+    margin-left: 35%;
+    margin-top: 40%;
+}
+.login-button{
+    padding-left: 12%;
+    padding-right: 12%;
+    background: beige;
+    border-radius: 5px;
+}
+.user-pic{
+    height: 50px;
+    width: 50px;
+}
