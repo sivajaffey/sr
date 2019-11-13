@@ -3,6 +3,7 @@ import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { FormControl } from '@angular/forms';
 import { CommonUseService } from '../service/common-use.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-add-ques',
@@ -18,7 +19,7 @@ export class AddQuesComponent implements OnInit {
   questionTag = [];
   question = new FormControl('');
   questionFound: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  constructor(private http: CommonUseService) { }
+  constructor(private http: CommonUseService, private auth: AuthService) { }
 
   ngOnInit() {
   }
@@ -45,13 +46,13 @@ export class AddQuesComponent implements OnInit {
     }
   }
   submitQuestion() {
-    console.log(this.questionTag)
-    console.log(this.question.value)
+    let uid = this.auth.uid();
     let data = {
+      'user_id':uid,
       'question':this.question.value,
       'tags' : this.questionTag
     }
-    this.http.post('http://localhost:8081/question/',data)
+    this.http.post(this.http.apiUrl,data)
     .subscribe(data => {
       console.log(data)
     })

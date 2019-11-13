@@ -53,6 +53,9 @@ export class AuthService {
     const  user  =  JSON.parse(localStorage.getItem('user'));
     return  user  !==  null;
   }
+  uid():any {
+    return JSON.parse(localStorage.getItem('user')).uid;
+  }
   gotoPage(page) {
     this.router.navigate([page]);
   }
