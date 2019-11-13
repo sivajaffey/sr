@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { COMMA, ENTER } from '@angular/cdk/keycodes';
 import { MatChipInputEvent } from '@angular/material/chips';
 import { FormControl } from '@angular/forms';
+import { CommonUseService } from '../service/common-use.service';
+
 @Component({
   selector: 'app-add-ques',
   templateUrl: './add-ques.component.html',
@@ -16,7 +18,7 @@ export class AddQuesComponent implements OnInit {
   questionTag = [];
   question = new FormControl('');
   questionFound: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
-  constructor() { }
+  constructor(private http: CommonUseService) { }
 
   ngOnInit() {
   }
@@ -45,6 +47,14 @@ export class AddQuesComponent implements OnInit {
   submitQuestion() {
     console.log(this.questionTag)
     console.log(this.question.value)
+    let data = {
+      'question':this.question.value,
+      'tags' : this.questionTag
+    }
+    this.http.post('http://localhost:8081/question/',data)
+    .subscribe(data => {
+      console.log(data)
+    })
   }
 
 }

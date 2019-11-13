@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { MatListModule } from '@angular/material/list';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    MatListModule
+    MatListModule,
+    HttpClientModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
